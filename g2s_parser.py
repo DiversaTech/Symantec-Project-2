@@ -53,8 +53,8 @@ def context(data, get):
 		context[i]['value'] = get_context_value(data, context_names[i], get)
 
 def body(data, get):
-	data['body'] = []
-	body = data['body']
+	data["body"] = []
+	body = data["body"]
 	body_names = ["contentBlockId", "mimeType", "data"]
 
 	i = 0
@@ -70,7 +70,16 @@ def body(data, get):
 
 	body.append({})
 	body[i]['name'] = body_names[i]
-	body[i]['value'] = get["payload"]["body"]["data"] #probably will break if file contains attachements
+
+	#for files without attachments
+	body[i]['value'] = get["payload"]["body"]["data"]
+	
+	#for files with attachments
+	#body_value = ""
+	#for p in get["payload"]["parts"][0]["parts"]:
+	#	body_value += p["body"]["data"]
+	#body[i]['value'] = body_value
+	
 	i+=1
 
 def subject(data, get):
@@ -108,6 +117,7 @@ def start(json_file):
 
 	request = json.dumps(data)
 	print(request)
+	return request
 
 if __name__ == '__main__':
-	start("data.json")
+	start("data2.json")
