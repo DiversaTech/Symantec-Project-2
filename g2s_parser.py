@@ -1,5 +1,6 @@
 import json
 import re
+import sys
 
 def load_json(file):
 	#file: path to the .json file
@@ -71,15 +72,15 @@ def body(data, get):
 	body.append({})
 	body[i]['name'] = body_names[i]
 
-	#for files without attachments
-	body[i]['value'] = get["payload"]["body"]["data"]
-	
-	#for files with attachments
-	#body_value = ""
-	#for p in get["payload"]["parts"][0]["parts"]:
-	#	body_value += p["body"]["data"]
-	#body[i]['value'] = body_value
-	
+	try:
+		#for files without attachments
+		body[i]['value'] = get["payload"]["body"]["data"]
+	except:
+		#for files with attachments
+		body_value = ""
+		for p in get["payload"]["parts"][0]["parts"]:
+			body_value += p["body"]["data"]
+		body[i]['value'] = body_value
 	i+=1
 
 def subject(data, get):
@@ -106,7 +107,7 @@ def subject(data, get):
 			break
 	i+=1
 
-def start(json_file):
+def main(json_file):
 
 	get = load_json(json_file)
 	data = {}
@@ -120,4 +121,5 @@ def start(json_file):
 	return request
 
 if __name__ == '__main__':
-	start("data2.json")
+	#cmd line: python g2s_parser.py file.json
+	main(sys.argv[1])
