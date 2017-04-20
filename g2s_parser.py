@@ -60,27 +60,24 @@ def body(data, get):
 
 	i = 0
 	body.append({})
-	body[i]['name'] = body_names[i]
-	body[i]['value'] = get["id"]
+	body[i][body_names[i]] = get["id"]
 	i+=1
 
 	body.append({})
-	body[i]['name'] = body_names[i]
-	body[i]['value'] = get["payload"]["mimeType"]
+	body[i][body_names[i]] = get["payload"]["mimeType"]
 	i+=1
 
 	body.append({})
-	body[i]['name'] = body_names[i]
 
 	try:
 		#for files without attachments
-		body[i]['value'] = get["payload"]["body"]["data"]
+		body[i][body_names[i]] = get["payload"]["body"]["data"]
 	except:
 		#for files with attachments
 		body_value = ""
 		for p in get["payload"]["parts"][0]["parts"]:
 			body_value += p["body"]["data"]
-		body[i]['value'] = body_value
+		body[i][body_names[i]] = body_value
 	i+=1
 
 def subject(data, get):
@@ -90,20 +87,17 @@ def subject(data, get):
 
 	i = 0
 	subject.append({})
-	subject[i]['name'] = subject_names[i]
-	subject[i]['value'] = get["threadId"]
+	subject[i][subject_names[i]] = get["threadId"]
 	i+=1
 
 	subject.append({})
-	subject[i]['name'] = subject_names[i]
-	subject[i]['value'] = get["payload"]["mimeType"]
+	subject[i][subject_names[i]] = get["payload"]["mimeType"]
 	i+=1
 
 	subject.append({})
 	for p in get['payload']['headers']:
 		if(p['name'] == 'Subject'):
-			subject[i]['name'] = subject_names[i]
-			subject[i]['value'] = p["value"]
+			subject[i][subject_names[i]] = p["value"]
 			break
 	i+=1
 
