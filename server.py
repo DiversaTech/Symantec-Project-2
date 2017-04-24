@@ -4,7 +4,7 @@ app = Flask('Email Extraction')
 # Home Page
 @app.route('/')
 def index():
-    return 'Sample text'
+    return 'ayy lmao'
 
 # To add routes, just use @app.route(path)
 # Solid documentation is on flask.pocoo.org

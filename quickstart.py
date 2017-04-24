@@ -18,6 +18,7 @@ except ImportError:
 SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
 CLIENT_SECRET_FILE = 'client_secrets.json'
 APPLICATION_NAME = 'Gmail API Python Quickstart'
+#SERVICE = build('plus', 'v1')
 
 
 def get_credentials():
@@ -77,6 +78,13 @@ def main():
       for email in email_list:
         message = service.users().messages().get(userId='me', id=email['id']).execute()
         print(message['snippet'])
+    # people_resource = SERVICE.people()
+    # people_document = people_resource.get(userId='me').execute()
+    #
+    # print("ID: " + people_document['id'])
+    # print("Display name: " + people_document['displayName'])
+    # print("Image URL: " + people_document['image']['url'])
+    # print("Profile URL: " + people_document['url'])
 
     # results = service.users().labels().list(userId='me').execute()
     # labels = results.get('labels', [])
