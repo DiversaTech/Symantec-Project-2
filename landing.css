@@ -1,0 +1,121 @@
+body {
+  border:0;
+  margin: 0;
+}
+
+/* navbar */
+.navbar-container {
+  float: right;
+  padding-right: 2%;
+}
+
+.navbar-list {
+  list-style-type: none;
+}
+
+.navbar-list li {
+  display: inline-block;
+  margin-right: 30px;
+  font-family: Roboto;
+  color: #333333;
+}
+
+.section1 {
+  border:0;
+  margin: 0;
+  background-color: #fde86b;
+  height: 100%;
+}
+
+/* body text */
+.DLP-title {
+  font-family: Roboto;
+  color: #333333;
+  font-size: 30px;
+  padding-top: 22%;
+  padding-left: 3%;
+  margin: 0;
+}
+
+.DLP-paragraph {
+  font-family: Roboto, thin;
+  color: #333333;
+  font-size: 20px;
+  padding-left: 3%;
+  padding-top: 2%;
+}
+
+.iphone {
+  position: absolute;
+  bottom:0;
+  left: 40%;
+  width: 55%;
+}
+
+/* give it a whirl page */
+.section2 {
+  top:100%;
+  background-color: white;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border: 0;
+}
+
+.give-it-a-whirl {
+  font-family: Roboto;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 1.5%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.description {
+  font-family: Roboto;
+  text-align: center;
+  font-size: 15px;
+}
+
+.title {
+  padding-top: 2%;
+  font-size: 35px;
+  text-align: center;
+}
+
+.btn {
+  background-color: #fde86b;
+}
+
+.center-btn {
+  text-align: center;
+  padding-top: 2%;
+}
+
+.img {
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+
+.description {
+  text-align: center;
+}
+
+.icon {
+  width: 90%;
+}
+
+.iconcontainer {
+  padding-top: 2%;
+}
+
+/* bottom contianer */
+.bottom-container {
+  background-color: #2a2a2a;
+  height: 15%;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
